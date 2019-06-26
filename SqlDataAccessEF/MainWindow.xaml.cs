@@ -27,7 +27,12 @@ namespace SqlDataAccessEF
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
+            SampleEntities db = new SampleEntities();
 
+            List<Person> personsList = db.People.Where(x => x.LastName == LastNameText.Text).ToList();
+
+            PeopleFoundListBox.ItemsSource = personsList;
+            PeopleFoundListBox.DisplayMemberPath = "FullInfo";
         }
     }
 }
