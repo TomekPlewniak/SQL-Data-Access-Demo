@@ -38,5 +38,27 @@ namespace SqlDataAccessDapper
 
             FoundText.Text = people.Count().ToString();
         }
+
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+            try
+            {
+                db.InsertPerson(FirstNameInsText.Text, LastNameInsText.Text, EmailAddressInsText.Text, PhoneNumberInsText.Text);
+
+                MessageBox.Show("Person save in database.");
+
+                // Clear txtBox;
+                FirstNameInsText.Clear();
+                LastNameInsText.Clear();
+                EmailAddressInsText.Clear();
+                PhoneNumberInsText.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
