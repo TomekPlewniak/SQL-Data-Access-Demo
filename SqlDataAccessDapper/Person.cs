@@ -14,8 +14,6 @@ namespace SqlDataAccessDapper
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
 
-        private string dwadwa;
-
         public string FullInfo
         {
             get

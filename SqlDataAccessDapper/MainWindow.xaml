@@ -40,7 +40,7 @@
         <ListBox x:Name="PeopleFoundListBox" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"></ListBox>
 
         <!-- ROW 4 -->
-        <Button Name="SearchButton" Content="Search" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Margin="50, 10, 50, 10" Click="SearchButton_Click"></Button>
+        <Button Name="SearchButton" Content="Search" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Margin="50, 10, 50, 10" ></Button>
         <Grid Grid.Column="2" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -78,7 +78,7 @@
         <TextBox Name="PhoneNumberInsText" Grid.Column="2" Grid.Row="8" Margin="10, 10, 10, 10"></TextBox>
 
         <!-- ROW 9 -->
-        <Button Name="InsertButton" Content="Insert" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Margin="50, 10, 50, 10" Click="InsertButton_Click"></Button>
+        <Button Name="InsertButton" Content="Insert" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Margin="50, 10, 50, 10"></Button>
 
     </Grid>
 </Window>
