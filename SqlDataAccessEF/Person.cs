@@ -20,8 +20,6 @@ namespace SqlDataAccessEF
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
 
-        private int myVar;
-
         public string FullInfo
         {
             get

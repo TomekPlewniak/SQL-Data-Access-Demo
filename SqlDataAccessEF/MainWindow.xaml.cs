@@ -20,6 +20,8 @@ namespace SqlDataAccessEF
     /// </summary>
     public partial class MainWindow : Window
     {
+        SampleEntities db = new SampleEntities();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,12 +29,41 @@ namespace SqlDataAccessEF
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            SampleEntities db = new SampleEntities();
-
             List<Person> personsList = db.People.Where(x => x.LastName == LastNameText.Text).ToList();
 
             PeopleFoundListBox.ItemsSource = personsList;
             PeopleFoundListBox.DisplayMemberPath = "FullInfo";
+
+            FoundText.Text = personsList.Count().ToString();
+        }
+
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            Person newPerson = new Person
+            {
+                FirstName = FirstNameInsText.Text,
+                LastName = LastNameText.Text,
+                EmailAddress = EmailAddressInsText.Text,
+                PhoneNumber = PhoneNumberInsText.Text
+            };
+
+            try
+            {
+                db.People.Add(newPerson);
+                db.SaveChanges();
+
+                MessageBox.Show("Person save in database.");
+
+                // Clear txtBox;
+                FirstNameInsText.Clear();
+                LastNameInsText.Clear();
+                EmailAddressInsText.Clear();
+                PhoneNumberInsText.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
