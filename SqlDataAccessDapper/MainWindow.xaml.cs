@@ -20,9 +20,21 @@ namespace SqlDataAccessDapper
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Person> people = new List<Person>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+            people = db.GetPeople(LastNameText.Text);
+
+            PeopleFoundListBox.ItemsSource = people;
+            PeopleFoundListBox.DisplayMemberPath = "FullInfo";
         }
     }
 }
