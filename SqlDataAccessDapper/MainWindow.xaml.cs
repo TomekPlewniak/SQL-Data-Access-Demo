@@ -35,6 +35,8 @@ namespace SqlDataAccessDapper
 
             PeopleFoundListBox.ItemsSource = people;
             PeopleFoundListBox.DisplayMemberPath = "FullInfo";
+
+            FoundText.Text = people.Count().ToString();
         }
     }
 }

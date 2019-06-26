@@ -14,7 +14,10 @@ namespace SqlDataAccessDapper
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
             {
-                List<Person> output = connection.Query<Person>($"SELECT * FROM People WHERE LastName = '{lastName}'").ToList();
+                //List<Person> output = connection.Query<Person>($"SELECT * FROM People WHERE LastName = '{lastName}'").ToList();
+
+                // Stored Procedure.
+                List<Person> output = connection.Query<Person>("dbo.People_GetByLastName @LastName", new { LastName = lastName }).ToList();
 
                 return output;
             }
